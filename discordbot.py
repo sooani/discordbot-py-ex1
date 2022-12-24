@@ -33,7 +33,7 @@ async def on_message(message):
     if message.content.startswith(f'{PREFIX}hello'):
         await message.channel.send('Hello!')
         
-@client.command()
+@client.command
 async def 안녕(ctx):
     await ctx.channel.send(f'{ctx.message.author.mention}메로,하이메로', reference=ctx.message)
 

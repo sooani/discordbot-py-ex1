@@ -25,7 +25,7 @@ async def on_message(message):
     if message.cotent == '@everyone':
         await messge.channel.send('벨튀당!')
 
-    if message.content == f'{PREFIX}call':
+    if message.content.startswith(f'{PREFIX}call'):
         await message.channel.send("callback!")
 
     if message.content.startswith(f'{PREFIX}hello'):

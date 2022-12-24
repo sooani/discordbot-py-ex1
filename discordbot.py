@@ -12,27 +12,29 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    print(f'Logged in as {client.user}.')
+    print(f'[알림][{client.user}가 성공적으로 구동이 되었습니당.]')
 
 @client.event
 async def on_message(message):
     if message.author.client: return None
     await client.process_commands(message)
     
+    if message.cotent == '@everyone':
+        await messge.channel.send('벨튀당!')
+        
+@client.event
+async def on_message(message): 
     if message.author == client.user:
         return
     
-    if message.cotent == '@everyone':
-        await messge.channel.send('벨튀당!')
-
-    if message.content.startswith(f'{PREFIX}call'):
+    if message.content == f'{PREFIX}call':
         await message.channel.send("callback!")
 
     if message.content.startswith(f'{PREFIX}hello'):
         await message.channel.send('Hello!')
         
 @client.command()
-async def f'{PREFIX}안녕(ctx):
+async def == f'{PREFIX}안녕(ctx)':
     await ctx.channel.send(f'{ctx.message.author.mention}메로,하이메로', reference=ctx.message)
 
 try:

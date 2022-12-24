@@ -18,7 +18,6 @@ async def on_ready():
 async def on_message(message):
     if message.author.client: return None
     await client.process_commands(message)
-    
     if message.cotent == '@everyone':
         await messge.channel.send('벨튀당!')
         
